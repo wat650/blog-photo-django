@@ -11,4 +11,21 @@
     background-color: #4CAF50; 
     border: none;
 } */
- 
+
+
+/* Styles personnalisés pour les icônes */
+.icon-buttons i {
+    font-size: 20px;
+}
+.icon-view {
+    color: #007bff; /* Couleur bleue pour "Voir plus" */
+}
+.icon-edit {
+    color: #28a745; /* Couleur verte pour "Modifier" */
+}
+.icon-delete {
+    color: #dc3545; /* Couleur rouge pour "Supprimer" */
+}
+.icon-buttons i:hover {
+    opacity: 0.8; /* Effet au survol */
+}

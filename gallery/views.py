@@ -22,3 +22,10 @@ def created_photo_view(request):
         'form': form,
     }
     return render(request, 'gallery/created_photo.html', context=context)
+
+def list_post_view(request):
+    posts = Photo.objects.all()
+    context = {
+        'posts': posts
+    }
+    return render(request, 'gallery/list_posts.html', context)    

@@ -33,6 +33,6 @@ class PhotoForms(forms.ModelForm):
 
     def clean_image(self):
         image = self.cleaned_data.get('image')
-        if image and image.size > 500 * 1024:
-            raise forms.ValidationError("La taille de l'image est trop grande, réduisez-la.")
+        if image and image.size > 500 * 1024: #500 ko
+            raise forms.ValidationError("La taille de l'image est trop grande, réduisez-là.")
         return image

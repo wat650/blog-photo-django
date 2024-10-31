@@ -13,14 +13,13 @@
         {% endif %}
 
         <div class="card shadow-sm p-4 mb-4 bg-white">
-            <h2 class="mb-4">Création de Blog</h2>
+            <h2 class="mb-4">Création de Post</h2>
             <form method="POST" action="." enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <!-- Boutons alignés à droite -->
                 <div class=" d-flex justify-content-center mt-4">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-success">Create</button>
                     <a href="{% url 'gallery:created_photo' %}" class="btn btn-secondary ms-2">Cancel</a>
                 </div>
             </form>
