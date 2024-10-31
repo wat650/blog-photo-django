@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Création de Photo{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="card shadow-sm p-4 mb-4 bg-white">
+            <h2 class="mb-4">Création de Blog</h2>
+            <form method="POST" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <!-- Boutons alignés à droite -->
+                <div class=" d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a href="{% url 'gallery:created_photo' %}" class="btn btn-secondary ms-2">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
