@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}update de Photo{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <br>
+        <h2 class="mb-4">Mise à jour du post photo</h2>
+        <form method="POST" enctype="multipart/form-data" class="p-4 border bg-light">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-right">
+                <a href="{% url 'gallery:list_posts' %}" class="btn btn-secondary">Annuler</a>
+                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

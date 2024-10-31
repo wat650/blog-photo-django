@@ -1,21 +1,7 @@
-/* .form-control {
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.form-control-file {
-    font-size: 16px;
-}
-
-.btn-primary {
-    background-color: #4CAF50; 
-    border: none;
-} */
-
 
 /* Styles personnalisés pour les icônes */
 .icon-buttons i {
-    font-size: 20px;
+    font-size: 40px;
 }
 .icon-view {
     color: #007bff; /* Couleur bleue pour "Voir plus" */

@@ -1,5 +1,5 @@
 # gallery/views.py
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Photo
 from .forms import PhotoForms
 from django.contrib import messages
@@ -23,9 +23,40 @@ def created_photo_view(request):
     }
     return render(request, 'gallery/created_photo.html', context=context)
 
+
+
 def list_post_view(request):
     posts = Photo.objects.all()
     context = {
         'posts': posts
     }
     return render(request, 'gallery/list_posts.html', context)    
+
+
+
+def edit_post_view(request, post_id):
+    photo = get_object_or_404(Photo, id=post_id)
+    form = PhotoForms(request.POST or None, request.FILES or None, instance=photo)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Modifications reussies!")
+            return redirect('gallery:list_posts')
+        else:
+            messages.error(request, "Échec de la mise à jour. Veuillez vérifier les informations fournies.")
+
+    context = {
+        'form': form,
+        'photo': photo,
+    }
+    return render(request, 'gallery/update_photo.html', context)
+
+
+
+def delete_post_view(request, post_id):
+    post = get_object_or_404(Photo, id=post_id)
+        
+    post.delete()
+    messages.success(request, "post supprimé avec succès !")
+    return redirect('gallery:list_posts') #dans redirect, tu mets le name de la page qui est dans l'url

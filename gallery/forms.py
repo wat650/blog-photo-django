@@ -31,6 +31,7 @@ class PhotoForms(forms.ModelForm):
         model = Photo
         fields = ['title', 'description', 'image']
 
+#Validation du formulaire
     def clean_image(self):
         image = self.cleaned_data.get('image')
         if image and image.size > 500 * 1024: #500 ko
